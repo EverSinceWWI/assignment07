@@ -6,7 +6,7 @@ function setup() {
   rectMode(CENTER);
   cam = createCapture(VIDEO);
   cam.size(500,375);
-  cam.hide();
+  //cam.hide();
 }
 
 function draw() {
