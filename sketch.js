@@ -1,7 +1,7 @@
 var cam;
 var a=0;
 function setup() {
-  createCanvas(innerWidth,innerHeight);
+  createCanvas(500,500);
   background(45);
   rectMode(CENTER);
   cam = createCapture(VIDEO);
