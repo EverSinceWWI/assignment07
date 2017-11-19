@@ -43,7 +43,7 @@ if(frameCount>120) {
   fill(c);
   noStroke();
   tint(255,80);
-  rect(x-width/2,y-height/2,300+volAmp*50+a/10,5+volAmp*2+a/10);
+  rect(x-width/2,y-height/2,300+volAmp*2+a/10,5+volAmp*2+a/10);
   blendMode(DIFFERENCE);
   rect(0,-250,0,250);
   }
