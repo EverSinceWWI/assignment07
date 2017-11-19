@@ -1,6 +1,7 @@
 var cam;
 var mic;
 var a=0;
+var threshold=0.35
 function setup() {
   createCanvas(500,500);
   background(45);
@@ -13,24 +14,25 @@ function setup() {
 }
 
 function draw() {
-  a++
   scale(1.33);
   translate(width/3,height/2);
   scale(-1,1);
   var camPixels = cam.loadPixels();
   var vol = mic.getLevel();
   var volAmp = vol*100;
-  console.log(volAmp);
+  console.log("a: "+a);
+  console.log("volAmp: "+volAmp);
 
   image(cam,-width/2,-height/2);
-  var amount=10; //to increase
+  var amount=random(10,15+a); //to increase
 if(frameCount>120) {
-  if(volAmp>0.25) {
-
+  if(volAmp>threshold) {
+      a+=1
+      if(a>=80){a=80};
       push();
       tint(random(255),random(255),random(255)); //to increase
-      translate(random(40),random(40)) //to increase
-      scale(random(1,1.2)); //to increase
+      translate(random(40+volAmp*5),random(40+volAmp*5)) //to increase
+      scale(random(1+volAmp/10,1+volAmp/10)); //to increase
         image(cam,-width/2,-height/2);
         pop();
 
@@ -42,14 +44,14 @@ if(frameCount>120) {
   fill(c);
   noStroke();
   tint(255,80);
-  rect(x-width/2,y-height/2,300+volAmp*50,5+volAmp*2);
+  rect(x-width/2,y-height/2,300+volAmp*50+a/10,5+volAmp*2+a/10);
   blendMode(DIFFERENCE);
   rect(0,-250,0,250);
   }
 }
 else{blendMode(BLEND);}
 
-if(volAmp>0.25) {
+if(a>20) {
 push();
 blendMode(BLEND);
 fill(18);
