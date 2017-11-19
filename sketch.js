@@ -1,7 +1,7 @@
 var cam;
 var mic;
 var a=0;
-var threshold=0.35
+var threshold=0.8
 function setup() {
   createCanvas(500,500);
   background(45);
@@ -30,7 +30,7 @@ if(frameCount>120) {
       if(a>=80){a=80};
       push();
       tint(random(255),random(255),random(255));
-      translate(random(40+volAmp*5),random(40+volAmp*5))
+      translate(random(40+volAmp*5),random(40+volAmp*5));
       scale(random(1+volAmp/10,1+volAmp/10));
         image(cam,-width/2,-height/2);
         pop();
