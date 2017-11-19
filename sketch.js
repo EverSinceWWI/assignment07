@@ -11,6 +11,7 @@ function setup() {
   mic.start();
   cam.size(500,375);
   cam.hide();
+  console.log("NOTHING TO SEE HERE");
 }
 
 function draw() {
@@ -20,19 +21,17 @@ function draw() {
   var camPixels = cam.loadPixels();
   var vol = mic.getLevel();
   var volAmp = vol*100;
-  console.log("a: "+a);
-  console.log("volAmp: "+volAmp);
 
   image(cam,-width/2,-height/2);
-  var amount=random(10,15+a); //to increase
+  var amount=random(10,15+a);
 if(frameCount>120) {
   if(volAmp>threshold) {
       a+=1
       if(a>=80){a=80};
       push();
-      tint(random(255),random(255),random(255)); //to increase
-      translate(random(40+volAmp*5),random(40+volAmp*5)) //to increase
-      scale(random(1+volAmp/10,1+volAmp/10)); //to increase
+      tint(random(255),random(255),random(255));
+      translate(random(40+volAmp*5),random(40+volAmp*5))
+      scale(random(1+volAmp/10,1+volAmp/10));
         image(cam,-width/2,-height/2);
         pop();
 
