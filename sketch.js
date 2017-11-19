@@ -30,8 +30,8 @@ if(frameCount>120) {
       if(a>=80){a=80};
       push();
       tint(random(255),random(255),random(255));
-      translate(random(40+volAmp*5),random(40+volAmp*5));
-      scale(random(1+volAmp/10,1+volAmp/10));
+      translate(random(40+volAmp*5+a/2),random(40+volAmp*5+a/2));
+      scale(random(1+volAmp/10,1+volAmp/10+a/20));
         image(cam,-width/2,-height/2);
         pop();
 
